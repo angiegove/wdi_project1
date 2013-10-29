@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'haml'
 gem 'bcrypt-ruby', '3.0.0'
+gem 'rails_12factor' , group: :production
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
