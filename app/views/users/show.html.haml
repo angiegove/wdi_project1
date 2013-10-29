@@ -1,0 +1,10 @@
+%h2= @user.name
+=image_tag @user.image
+%p= link_to 'Edit Profile', edit_users_path
+%p= link_to 'Create a Bar Wish List', new_wishlist_path
+
+%ol
+ - @wishlists.each do |wishlist|
+  %li= link_to wishlist.title, wishlist_path(wishlist)
+
+

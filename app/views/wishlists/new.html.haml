@@ -1,0 +1,18 @@
+= form_for @wishlist do |f|
+
+  = f.label :title
+  = f.text_field :title
+
+  = f.label :image
+  = f.text_field :image
+
+  = f.label :description
+  = f.text_field :description
+
+  - Bar.all.each do |bar|
+    = check_box_tag 'wishlist[bar_ids][]', bar.id, bar.in?(@wishlist.bars)
+    %p= bar.name
+
+
+  %div= f.submit "Start Drinking"
+  %p= link_to 'Cant find the bar you looking for? Add it here..', new_bar_path, :target => '_blank'

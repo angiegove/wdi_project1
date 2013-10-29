@@ -1,0 +1,10 @@
+/ displaying the information of the bar
+%h2= @bar.name
+=image_tag @bar.image
+%ol
+  %li= @bar.description
+  %li= @bar.address
+  %li= @bar.city
+  %li= @bar.opening_hours
+  - if @bar.events
+    %li= @bar.events

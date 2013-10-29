@@ -1,0 +1,9 @@
+%h2= @wishlist.title
+- if @wishlist.image
+  %p= image_tag @wishlist.image
+%ol
+  %li= @wishlist.description
+  %li= link_to 'Edit Wishlist', edit_wishlist_path
+
+  - @bars.each do |bar|
+    %li= link_to bar.name, bar_path(bar)
