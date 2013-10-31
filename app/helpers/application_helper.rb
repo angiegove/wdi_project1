@@ -13,7 +13,7 @@ module ApplicationHelper
        if false # @user_authenticated.is_admin
         links += "<li>#{link_to('Show Companies', users_path)}</li>"
       end
-      links += "<li>#{link_to("Edit #{@company_authenticated.name}'s Profile", edit_companies_path)}</li>"
+      links += "<li>#{link_to("#{@company_authenticated.name}", @company_authenticated)}</li>"
       links += "<li>#{link_to('Logout '+ @company_authenticated.name, company_login_path, :method => 'delete',
                                 :confirm => 'Are you sure>') }</li>"
 

@@ -1,0 +1,78 @@
+<!-- - if @company.errors.any?
+  %ol
+    - @company.errors.full_messages.each do |msg| #like the erb tags without the = sign it doesnt print out
+      %li.alert.alert-warning= msg
+= form_for @company do |f|
+  %div.form-group
+     = f.label :name
+    = f.text_field :name, :autofocus => true, :class=> 'form-control'
+  %div.form-group
+    = f.label :email
+     = f.text_field :email, :class=> 'form-control'
+  %div.form-group
+     = f.label :password
+    = f.password_field :password, :class=> 'form-control'
+  %div.form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, :class=> 'form-control'
+    = f.submit -->
+
+
+<!-- If errors for creating a company errors will display  -->
+<% if @company.errors.any? %>
+  <ol>
+    <% @company.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning">
+        <%= msg %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
+
+<!-- This is a bootsrap form  -->
+<%= form_for @company do |f|%>
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- Name -->
+      <label class="control-label"  for="company[name]">Name</label>
+      <div class="controls">
+        <input type="text" id="company[name]" name="company[name]" placeholder="" class="input-xlarge form-control">
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="company[email]">E-mail</label>
+      <div class="controls">
+        <input type="text" id="company[email]" name="company[email]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please provide your E-mail</p> -->
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="company[password]">Password</label>
+      <div class="controls">
+        <input type="password" id="company[password]" name="company[password]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Password should be at least 4 characters</p> -->
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="company[password_confirmation]">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="company[password_confirmation]" name="company[password_confirmation]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please confirm password</p> -->
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

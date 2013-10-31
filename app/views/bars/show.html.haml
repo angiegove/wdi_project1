@@ -8,3 +8,11 @@
   %li= @bar.opening_hours
   - if @bar.events
     %li= @bar.events
+  =if @bar.company_id
+    %li=  @bar.company.name
+
+  -if @user_authenticated.is_admin?
+    %li= link_to 'Edit Bar', edit_bar_path
+    %li= link_to 'Destroy Bar', bar_path, :method => 'delete', :confirm => 'Are you sure?'
+
+  %img(src= "http://maps.googleapis.com/maps/api/staticmap?center=darling%20harbour,sydney&zoom=20&size=400x400&sensor=false")

@@ -1,9 +1,10 @@
 class CompaniesController < ApplicationController
 
-  before_filter :check_if_logged_in, :except => [:new, :create] #check if company is loged on except were ppl try to log on
+  # before_filter :check_if_logged_in, :except => [:new, :create] #check if company is loged on except were ppl try to log on
   before_filter :check_if_admin, :only => [:index, :destroy]
 
   def index
+    # @user = @user_authenticated.is_admin?
     @companies = Company.all
   end
 
@@ -22,12 +23,16 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def show
+    @company = Company.find params[:id]
+  end
+
   def edit
-    @company = @authenticated #instead of retyping it we just using the authenticated method to be used for edit
+    @company = @company_authenticated #instead of retyping it we just using the authenticated method to be used for edit
     render :new
   end
   def update
-    @company = @authenticated
+    @company = @company_authenticated
     if @company.update_attributes params[:company]
       redirect_to root_path
     else
@@ -37,11 +42,11 @@ class CompaniesController < ApplicationController
 
   private
   def check_if_logged_in
-    redirect_to(root_path) unless @authenticated.present?
+    redirect_to(root_path) unless @company_authenticated.present?
   end
 
   def check_if_admin
-    redirect_to(root_path) unless @authenticated.present? && @authenticated.is_admin?
+    redirect_to(root_path) unless @user_authenticated.present? && @user_authenticated.is_admin?
   end
 
 end

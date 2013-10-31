@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
-    # @authenticated = User.find session[:user_id] unless session[:user_id].nil?
+    @wishlist = Wishlist.all.sample(3)
   end
+
 end

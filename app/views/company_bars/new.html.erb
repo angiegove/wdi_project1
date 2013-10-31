@@ -1,4 +1,4 @@
-= form_for @bar do |f|
+ = form_for @bar, :url => @bar.id.nil? ? company_bars_path : company_bar_path(@bar) do |f|
   %div.form-group
     = f.label :name
     = f.text_field :name, :autofocus => true, :class=> 'form-control'
@@ -20,12 +20,4 @@
   %div.form-group
     = f.label :opening_hours
     = f.text_field :opening_hours, :class=> 'form-control'
-  -if @user_authenticated.is_admin?
-    = f.label :company_id
-    = f.collection_select :company_id, Company.all, :id, :name, :include_blank => true
-    / = f.select_tag :approved, options_for_select(true, false)
-    = f.select :approved, [['Approved', true], ['Unapproved', false]]
-
-
-    /= f.text_field :company_id, :class=> 'form-control'
-  = f.submit
+    = f.submit

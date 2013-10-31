@@ -12,6 +12,8 @@
 #
 
 class Wishlist < ActiveRecord::Base
+  # mount_uploader :image, ImageUploader
+
   attr_accessible :title, :image, :description, :user_id, :bar_ids
   belongs_to :user
   has_and_belongs_to_many :bars

@@ -2,7 +2,7 @@ class SessionController < ApplicationController
   def user_new
   end
 
-  def companies_new
+  def company_new
   end
   # def new
   # end
@@ -14,7 +14,7 @@ class SessionController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = "Incorrect login: Try Again." #if want a notice to apear once
-      redirect_to user_login_path
+      redirect_to login_path
     end
   end
 

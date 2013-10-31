@@ -1,0 +1,90 @@
+<!-- - if @user.errors.any?
+  %ol
+    - @user.errors.full_messages.each do |msg| #like the erb tags without the = sign it doesnt print out
+      %li.alert.alert-warning= msg
+= form_for @user do |f|
+  %div.form-group
+    = f.label :name
+    = f.text_field :name, :autofocus => true, :class=> 'form-control'
+  %div.form-group
+    = f.label :email
+    = f.text_field :email, :class=> 'form-control'
+  %div.form-group
+    = f.label :image
+    = f.text_field :image, :class=> 'form-control'
+  %div.form-group
+    = f.label :password
+    = f.password_field :password, :class=> 'form-control'
+  %div.form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, :class=> 'form-control'
+    = f.submit -->
+<% if @user.errors.any? %>
+  <ol>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li class="alert alert-warning">
+        <%= msg %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
+<%= form_for @user do |f|%>
+  <fieldset>
+    <div id="legend">
+      <legend class="">User</legend>
+    </div>
+    <div class="control-group">
+      <!-- Name -->
+      <label class="control-label"  for="user[name]">Name</label>
+      <div class="controls">
+        <input type="text" id="user[name]" name="user[name]" placeholder="" class="input-xlarge form-control">
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="user[email]">E-mail</label>
+      <div class="controls">
+        <input type="text" id="user[email]" name="user[email]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please provide your E-mail</p> -->
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- Image-->
+
+      <div class="controls">
+        <!-- image upload -->
+        <%= image_tag(@user.image_url) if @user.image? %>
+        <%= f.label :image, 'Image' %>
+        <%= f.file_field :image %>
+        <!-- image url -->
+       <%= f.label :remote_image_url, 'Image Url' %>
+       <%= f.text_field :remote_image_url, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="user[password]">Password</label>
+      <div class="controls">
+        <input type="password" id="user[password]" name="user[password]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Password should be at least 4 characters</p> -->
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="user[password_confirmation]">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="user[password_confirmation]" name="user[password_confirmation]" placeholder="" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please confirm password</p> -->
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Start Drinking</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

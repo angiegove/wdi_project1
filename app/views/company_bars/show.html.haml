@@ -1,0 +1,15 @@
+
+%h2= @bar.name
+=image_tag @bar.image
+%ol
+  %li= @bar.description
+  %li= @bar.address
+  %li= @bar.city
+  %li= @bar.opening_hours
+  - if @bar.events
+    %li= @bar.events
+  -if @bar.company_id
+    %li= link_to @company.name, @company_authenticated
+
+%p= link_to 'Edit Bar', edit_company_bar_path
+%p= link_to 'Destroy Bar', company_bar_path, :method => 'delete', :confirm => 'Are you sure?'

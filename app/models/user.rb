@@ -12,9 +12,11 @@
 #
 
 class User < ActiveRecord::Base
+   mount_uploader :image, ImageUploader
+
   has_secure_password
 
-  attr_accessible :name, :email, :image, :password, :password_confirmation #even though not in db, need to be able use
+  attr_accessible :name, :email, :image, :password, :password_confirmation, :remote_image_url #even though not in db, need to be able use
   #because we have password digest in database
   has_many :wishlists
 
