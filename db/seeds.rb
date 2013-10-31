@@ -10,8 +10,9 @@ u2 = User.create(:name => 'Angie Gove', :email => 'ang.gove@gmail.com', :remote_
 u3 = User.create(:name => 'Brad Swart', :email => 'brad8711@gmail.com', :remote_image_url => 'https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/37153_446100081910_4066165_n.jpg',
                  :password => 'brad', :password_confirmation => 'brad')
 u4 = User.create(:name => 'AngieAdmin', :email => 'angieadmin@gmail.com', :remote_image_url => 'https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/p206x206/734207_10151392905806407_1656555031_n.jpg',
-                 :password => 'angieadmin', :password_confirmation => 'angieadmin', :is_admin => 'true')
-
+                 :password => 'angieadmin', :password_confirmation => 'angieadmin')
+u4.is_admin = true
+u4.save
 w1 = Wishlist.create(:title => 'Tis The Season', :description => 'A list of my favourite bars over christmas')
 w2 = Wishlist.create(:title => 'Its my party', :description => 'jades 21st birthday bars')
 
