@@ -1,4 +1,6 @@
-%ul
+%h1 Bars
+%div.bars
+  %ul
   - @bars.each do |bar|
     %li= link_to bar.name, bar_path(bar)
     / The bar approved is bolleen data, using this ternary operator I can display the data as desired.

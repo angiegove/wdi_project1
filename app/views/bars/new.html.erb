@@ -104,6 +104,12 @@
       </div>
     </div>
 
+    <% if @user_authenticated.is_admin? %>
+      <%= f.label :company_id %>
+      <%= f.collection_select :company_id, Company.all, :id, :name, :include_blank => true %>
+      <%= f.select :approved, [['Approved', true], ['Unapproved', false]] %>
+    <% end %>
+
     <div class="control-group">
       <!-- Button -->
       <div class="controls">

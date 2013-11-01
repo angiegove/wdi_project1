@@ -54,11 +54,13 @@
         <%= image_tag(@user.image_url) if @user.image? %>
         <%= f.label :image, 'Image' %>
         <%= f.file_field :image %>
+      </div>
+
         <!-- image url -->
+      <div vlass= "controls">
        <%= f.label :remote_image_url, 'Image Url' %>
        <%= f.text_field :remote_image_url, :class => 'input-xlarge form-control'%>
       </div>
-    </div>
 
     <div class="control-group">
       <!-- Password-->

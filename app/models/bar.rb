@@ -35,7 +35,8 @@
 class Bar < ActiveRecord::Base
    mount_uploader :image, ImageUploader
 
-  attr_accessible :name, :image, :description, :email, :address, :city, :events, :opening_hours, :company_id, :approved
+  attr_accessible :name, :image, :description, :email, :address, :city, :events, :opening_hours, :company_id, :approved,
+  :remote_image_url
   has_and_belongs_to_many :wishlists
   belongs_to :company
 end

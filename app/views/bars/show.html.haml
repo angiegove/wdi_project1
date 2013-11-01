@@ -1,29 +1,32 @@
 / displaying the information of the bar
 %h2= @bar.name
-=image_tag @bar.image_url
-%ol
-  %li
-    Description:
-    = @bar.description
-
-  %li
-    Address:
-    = @bar.address
-  %li
-    City:
-    = @bar.city
-  %li
-    Opening Hours:
-    = @bar.opening_hours
-  - if @bar.events
+- if @bar.image
+  = image_tag @bar.image, :class => 'profile_image'
+%div.details
+  %ol
     %li
-      Events
-      = @bar.events
-  =if @bar.company_id
-    %li=  @bar.company.name
+      %h2= 'Description:'
+      = @bar.description
 
-  -if @user_authenticated.is_admin?
-    %li= link_to 'Edit Bar', edit_bar_path
-    %li= link_to 'Destroy Bar', bar_path, :method => 'delete', :confirm => 'Are you sure?'
+    %li
+      %h2= 'Address:'
+      = @bar.address
+    %li
+      %h2='City:'
+      = @bar.city
+    %li
+      %h2='Opening Hours:'
+      = @bar.opening_hours
+    - if @bar.events
+      %li
+        %h2='Events:'
+        = @bar.events
+    -if @bar.company_id
+      %li
+        %h2='Owners:'
+        =  @bar.company.name
+    -if @user_authenticated.is_admin?
+      %li= link_to 'Edit Bar', edit_bar_path
+      %li= link_to 'Destroy Bar', bar_path, :method => 'delete', :confirm => 'Are you sure?'
 
-  %img(src= "http://maps.googleapis.com/maps/api/staticmap?center=darling%20harbour,sydney&zoom=20&size=400x400&sensor=false")
+  / %img(src= "http://maps.googleapis.com/maps/api/staticmap?center=darling%20harbour,sydney&zoom=20&size=400x400&sensor=false")

@@ -36,11 +36,13 @@ class CompaniesController < ApplicationController
     end
   end
   def update
-    @company = @company_authenticated
-    if @company.update_attributes params[:company]
-      redirect_to root_path
-    else
-      render :new
+    @company = Company.find params[:id] # @company_authenticated #instead of retyping it we just using the authenticated method to be used for edit
+    if @company.id == @company_authenticated.try(:id) || @user_authenticated.is_admin
+      if @company.update_attributes params[:company]
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 

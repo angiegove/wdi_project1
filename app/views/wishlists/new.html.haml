@@ -8,7 +8,11 @@
       = f.text_field :title, :class => "input-xlarge form-control"
     %div.control-group
       = f.label :image
-      = f.text_field :image, :class => "input-xlarge form-control"
+      = f.file_field :image, :class => "input-xlarge form-control"
+    %div.control-group
+      = image_tag(@wishlist.remote_image_url) if @wishlist.image?
+      = f.label :remote_image_url, 'Image Url'
+      = f.text_field :remote_image_url, :class => 'input-xlarge form-control'
     %div.control-group
       = f.label :description
       = f.text_field :description, :class => "input-xlarge form-control"

@@ -1,8 +1,20 @@
 %h2= @user.name
-=image_tag @user.image_url
-%p= link_to 'Edit Profile', edit_users_path
-%p= link_to 'Create a Bar Wish List', new_wishlist_path
+=image_tag @user.image_url , :class => 'profile_image'
+%div.link
+  %p= link_to 'Edit Profile', edit_users_path
 
-%ol
- - @wishlists.each do |wishlist|
-  %li= link_to wishlist.title, wishlist_path(wishlist)
+
+
+
+%div.text
+  %h2 My Wishlists
+  %p= link_to 'Create a Bar Wish List', new_wishlist_path
+  - @wishlists.each do |w|
+    %div.col-md-4
+      %div.thumbnail
+        = image_tag w.image_url
+        %div.caption
+          %h3= w.title
+          %p= w.description
+        %div.link
+          %li= link_to 'View Wishlist', wishlist_path(w)

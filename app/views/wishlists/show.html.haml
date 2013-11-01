@@ -1,9 +1,10 @@
 %h2= @wishlist.title
 - if @wishlist.image
-  %p= image_tag @wishlist.image
-%ol
-  %li= @wishlist.description
-  %li= link_to 'Edit Wishlist', edit_wishlist_path
+  = image_tag @wishlist.image, :class => 'profile_image'
 
+%p= @wishlist.description
+%div.link
+  %li= link_to 'Edit Wishlist', edit_wishlist_path
+  %h2 My Bars
   - @bars.each do |bar|
     %li= link_to bar.name, bar_path(bar)

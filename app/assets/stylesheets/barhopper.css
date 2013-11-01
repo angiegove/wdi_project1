@@ -1,14 +1,37 @@
 h2 {
   font-family: 'Sancreek', cursive;
+  /*text-align: center;*/
 }
 
 h3 {
-  font-family: 'Viga', sans-serif;;
+  font-family: 'Viga', sans-serif;
 }
 
 body {
   padding: 100px;
-  background: url('https://lynesandco.files.wordpress.com/2012/05/img_3159.jpg');
+}
+
+.bars {
+  font-family: 'Sancreek', cursive;
+  font-size: 20px
+}
+
+.details {
+  font-family: 'Viga', sans-serif;
+  font-size: 24px;
+
+}
+
+.fullscreen {
+  background-image: url('https://lynesandco.files.wordpress.com/2012/05/img_3159.jpg');
+  background-size: cover;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: 50% 50%;
 
 }
 
@@ -33,7 +56,7 @@ body {
 }
 
 .thumbnail {
-  height: 300px;
+  /*height: 300px;*/
   width: 100%;
   text-align: center;
   border: 10px solid ;
@@ -43,6 +66,29 @@ li {
   list-style: none;
 }
 
+.navbar {
+  opacity: 0.8;
+}
+
 .navbar-brand {
   font-family: 'Sancreek', cursive;
+  font-size: 28px;
+}
+
+.link {
+  font-family: 'Sancreek', cursive;
+  font-size: 20px
+}
+
+.profile_image {
+  border: 10px solid ;
+}
+
+.text {
+  font-family: 'Viga', sans-serif;
+}
+
+p {
+  font-family: 'Viga', sans-serif;
+  font-size: 20px;
 }

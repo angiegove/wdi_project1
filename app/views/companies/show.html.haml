@@ -1,16 +1,17 @@
 %h2
   = link_to @company.name, @company_authenticated
-%div.box
+%div.details
   %ul
-    Contact us:
+    %h2= 'Contact us:'
     %li= @company.email
     %li
       = link_to 'I have a new bar', new_company_bar_path
       - @company.bars.each do |bar|
+        %h2= 'My Bars'
         %li= link_to bar.name, company_bar_path(bar)
 
       / This if statement allows only for the admin user to have access to editing and deleting bar
-  %div.controls
-    -if @user_authenticated.is_admin?
-      %li= link_to 'Edit company', edit_company_path
-      %li= link_to 'Destroy company', company_path, :method => 'delete', :confirm => 'Are you sure?'
+
+- if @company.id == @company_authenticated.try(:id) || (@user_authenticated && @user_authenticated.is_admin?)
+  %li= link_to 'Edit company', edit_company_path
+  %li= link_to 'Destroy company', company_path, :method => 'delete', :confirm => 'Are you sure?'
