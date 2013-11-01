@@ -1,18 +1,25 @@
-= form_for @wishlist do |f|
+%fieldset
+  %div#legend
+    %legend Bar
 
-  = f.label :title
-  = f.text_field :title
+  = form_for @wishlist do |f|
+    %div.control-group
+      = f.label :title
+      = f.text_field :title, :class => "input-xlarge form-control"
+    %div.control-group
+      = f.label :image
+      = f.text_field :image, :class => "input-xlarge form-control"
+    %div.control-group
+      = f.label :description
+      = f.text_field :description, :class => "input-xlarge form-control"
+      / Dynamic haml checkbox in order for the users to choose bars for thier wishlist
+    %div.control-group
+      - Bar.all.each do |bar|
+        = check_box_tag 'wishlist[bar_ids][]', bar.id, bar.in?(@wishlist.bars)
+        = bar.name
+        %br
 
-  = f.label :image
-  = f.text_field :image
 
-  = f.label :description
-  = f.text_field :description
-  / Dynamic haml checkbox in order for the users to choose bars for thier wishlist
-  - Bar.all.each do |bar|
-    = check_box_tag 'wishlist[bar_ids][]', bar.id, bar.in?(@wishlist.bars)
-    %p= bar.name
-
-
-  %div= f.submit "Start Drinking"
-  %p= link_to 'Cant find the bar you looking for? Add it here..', new_bar_path, :target => '_blank'
+    %div.controls
+      = f.submit "Start Drinking", :class => 'btn btn-success'
+      = link_to 'Cant find the bar you looking for? Add it here...', new_bar_path, :target => '_blank'

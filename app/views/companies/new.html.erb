@@ -33,20 +33,20 @@
 <%= form_for @company do |f|%>
   <fieldset>
     <div id="legend">
-      <legend class="">Register</legend>
+      <legend class="">Companies</legend>
     </div>
     <div class="control-group">
       <!-- Name -->
       <label class="control-label"  for="company[name]">Name</label>
       <div class="controls">
-        <input type="text" id="company[name]" name="company[name]" placeholder="" class="input-xlarge form-control">
+        <%= f.text_field :name, :class => 'input-xlarge form-control'%>
       </div>
     </div>
     <div class="control-group">
       <!-- E-mail -->
       <label class="control-label" for="company[email]">E-mail</label>
       <div class="controls">
-        <input type="text" id="company[email]" name="company[email]" placeholder="" class="input-xlarge form-control">
+        <%= f.text_field :email, :class => 'input-xlarge form-control'%>
         <!-- <p class="help-block">Please provide your E-mail</p> -->
       </div>
     </div>

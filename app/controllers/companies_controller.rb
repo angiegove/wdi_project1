@@ -28,8 +28,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = @company_authenticated #instead of retyping it we just using the authenticated method to be used for edit
-    render :new
+    @company = Company.find params[:id] # @company_authenticated #instead of retyping it we just using the authenticated method to be used for edit
+    unless @company.id == @company_authenticated.try(:id) || @user_authenticated.is_admin
+      redirect_to root_path
+    else
+      render :new
+    end
   end
   def update
     @company = @company_authenticated

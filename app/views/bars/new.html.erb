@@ -1,0 +1,114 @@
+<!-- = form_for @bar do |f|
+  %div.form-group
+    = f.label :name
+    = f.text_field :name, :autofocus => true, :class=> 'form-control'
+  %div.form-group
+    = f.label :email
+    = f.text_field :email, :class=> 'form-control'
+  %div.form-group
+    = f.label :image
+    = f.text_field :image, :class=> 'form-control'
+  %div.form-group
+    = f.label :address
+    = f.text_field :address, :class=> 'form-control'
+  %div.form-group
+    = f.label :city
+    = f.text_field :city, :class=> 'form-control'
+  %div.form-group
+    = f.label :events
+    = f.text_field :events, :class=> 'form-control'
+  %div.form-group
+    = f.label :opening_hours
+    = f.text_field :opening_hours, :class=> 'form-control'
+  -if @user_authenticated.is_admin?
+    = f.label :company_id
+    = f.collection_select :company_id, Company.all, :id, :name, :include_blank => true
+    / = f.select_tag :approved, options_for_select(true, false)
+    = f.select :approved, [['Approved', true], ['Unapproved', false]]
+
+
+    /= f.text_field :company_id, :class=> 'form-control'
+  = f.submit -->
+<%= form_for @bar do |f|%>
+  <fieldset>
+    <div id="legend">
+      <legend class="">Bar</legend>
+    </div>
+    <div class="control-group">
+      <!-- Name -->
+      <label class="control-label"  for="bar[name]">Name</label>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="bar[email]">E-mail</label>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'input-xlarge form-control'%>
+        <!-- <p class="help-block">Please provide your E-mail</p> -->
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- Image-->
+
+      <div class="controls">
+        <!-- image upload -->
+        <%= image_tag(@bar.image_url) if @bar.image? %>
+        <%= f.label :image, 'Image' %>
+        <%= f.file_field :image %>
+        <!-- image url -->
+       <%= f.label :remote_image_url, 'Image Url' %>
+       <%= f.text_field :remote_image_url, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Description-->
+      <label class="control-label" for="bar[description]">Description</label>
+      <div class="controls">
+        <%= f.text_field :description, :class => 'input-xlarge form-control'%>
+        <!-- <p class="help-block">Password should be at least 4 characters</p> -->
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Address -->
+      <label class="control-label"  for="bar[address]">Address</label>
+      <div class="controls">
+        <%= f.text_field :address, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- City -->
+      <label class="control-label"  for="bar[city]">City</label>
+      <div class="controls">
+        <%= f.text_field :city, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- City -->
+      <label class="control-label"  for="bar[events]">Events</label>
+      <div class="controls">
+        <%= f.text_field :events, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- City -->
+      <label class="control-label"  for="bar[opening_hours]">Drinking Hours</label>
+      <div class="controls">
+        <%= f.text_field :opening_hours, :class => 'input-xlarge form-control'%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Create Phuza</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

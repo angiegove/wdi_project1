@@ -1,0 +1,48 @@
+h2 {
+  font-family: 'Sancreek', cursive;
+}
+
+h3 {
+  font-family: 'Viga', sans-serif;;
+}
+
+body {
+  padding: 100px;
+  background: url('https://lynesandco.files.wordpress.com/2012/05/img_3159.jpg');
+
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.controls {
+  padding-top: 10px;
+}
+
+.item >img { width: 100%;
+
+}
+
+.control-group {
+  padding-bottom: 20px;
+}
+
+#this-carousel-id {
+  border: 10px solid;
+}
+
+.thumbnail {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  border: 10px solid ;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar-brand {
+  font-family: 'Sancreek', cursive;
+}

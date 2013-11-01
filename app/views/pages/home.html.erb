@@ -37,7 +37,7 @@
 
     <!-- Wishlists -->
   <div class= "wishlist">
-    <p>Featured Wishlists</p>
+    <h2>Featured Wishlists</h2>
     <% @wishlist.each do |w| %>
       <div class="col-md-4">
         <div class="thumbnail">
@@ -45,7 +45,7 @@
           <div class="caption">
             <h3><%= w.title %></h3>
             <p><%= w.description %></p>
-            <p><a href="/wishlists/<%= w.id %>" class="btn btn-default" role="button">Button</a></p>
+            <p><a href="/wishlists/<%= w.id %>" class="btn btn-default" role="button">View Wishlist</a></p>
           </div>
         </div>
        </div>

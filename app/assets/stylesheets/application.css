@@ -13,19 +13,4 @@
  *= require_tree .
  */
 
-body {
-  padding: 100px;
-  /*background-image: url('http://si.wsj.net/public/resources/images/OB-YR726_0828AU_H_20130828023801.jpg');*/
-}
 
-.container {
-  margin: 0 auto;
-}
-
-.controls {
-  padding-top: 10px;
-}
-
-.item >img { width: 100%;
-
-}
