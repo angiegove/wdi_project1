@@ -1,6 +1,6 @@
 %h2= @wishlist.title
 - if @wishlist.image
-  = image_tag @wishlist.image, :class => 'profile_image'
+  = image_tag @wishlist.image_url, :class => 'profile_image'
 
 %p= @wishlist.description
 %div.link
